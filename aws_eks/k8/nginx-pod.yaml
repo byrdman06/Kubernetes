@@ -19,5 +19,5 @@ spec:
         cpu: 50m
         memory: 120Mi
   nodeSelector: 
-    #topology.kubernetes.io/zone: us-east-1b
-    number: one
+    topology.kubernetes.io/zone: us-east-1b
+    #number: one

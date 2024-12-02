@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      startupProbe:
+        httpGet:
+          path: /start
+          port: 80
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 6
+        successThreshold: 1
+      resources:
+        limits:
+          cpu: 100m
+          memory: 240Mi

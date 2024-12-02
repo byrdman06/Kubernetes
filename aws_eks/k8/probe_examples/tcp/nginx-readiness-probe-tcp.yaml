@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-readiness-probe-http
+  name: nginx
 spec:
   containers:
-  - name: nginx-readiness-probe-http
-    image: nginx-readiness-image-http
+  - name: nginx
+    image: nginx:latest
     ports:
       - containerPort: 80
     readinessProbe:
-      httpGet:
-        path: /healthz
+      tcpSocket:
         port: 80
       initialDelaySeconds: 5
       periodSeconds: 10
@@ -18,5 +17,5 @@ spec:
       successThreshold: 1
     resources:
       limits:
-        memory: 128Mi
-        cpu: 500m
+        cpu: 100m
+        memory: 240Mi
