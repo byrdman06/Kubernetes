@@ -11,9 +11,8 @@ spec:
           command:
             - cat
             - /tmp/startup_complete
-        initialDelaySeconds: 15
         periodSeconds: 10
-        failureThreshold: 5
+        failureThreshold: 60
         successThreshold: 1
       resources:
         limits:
