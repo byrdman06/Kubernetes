@@ -9,3 +9,10 @@ spec: # configuration of the pod, what the pod will be holding
     image: nginx:latest # image to use for this container
     ports: # define the port that will be exposed by the container
     - containerPort: 80 # exposing port 80 for container
+    resources:
+      limits:
+        cpu: 100m
+        memory: 240Mi
+      requests:
+        cpu: 50m
+        memory: 120Mi

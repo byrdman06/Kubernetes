@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-liveness-pod
+spec:
+  containers:
+  - name: nginx-liveness-pod
+    image: nginx-liveness-image
+    ports:
+      - containerPort: 80
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 80
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      failureThreshold: 3
+      successThreshold: 1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
